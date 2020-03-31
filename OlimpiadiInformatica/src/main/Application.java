@@ -4,6 +4,7 @@ import Algoritmi.Biblioteca;
 import Algoritmi.Camillo;
 import Algoritmi.Codice;
 import Algoritmi.Giostra;
+import Algoritmi.Pirellone;
 
 public class Application {
 
@@ -22,6 +23,9 @@ public class Application {
 
 		Codice codice = new Codice(inputFilesPath + "inputCodice.txt");
 		codice.process("./outputs/outputCodice.txt");
+		
+		Pirellone pirellone = new Pirellone(inputFilesPath + "inputPirellone.txt");
+		pirellone.process("./outputs/outputPirellone.txt");
 
 	}
 
