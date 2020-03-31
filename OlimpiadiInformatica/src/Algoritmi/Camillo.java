@@ -13,11 +13,17 @@ public class Camillo extends Algoritmo{
 	
 	public Camillo(String inputFilePath) {
 		super("Camillo", inputFilePath);
-		prelievo = Integer.parseInt(inputLines.get(0));
+		init();
 		
 	}
 	
-    @Override
+    private void init() {
+		
+    	prelievo = Integer.parseInt(inputLines.get(0));
+		
+	}
+
+	@Override
 	public void calculate() {
 		
 		int resto = prelievo;

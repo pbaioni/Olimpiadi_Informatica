@@ -18,11 +18,19 @@ public class Biblioteca extends Algoritmo{
 	public Biblioteca(String inputFilePath) {
 		
 		super("Biblioteca", inputFilePath);
+		init();
 	}
 	
 	@Override
 	public void calculate() {
+
+		long durataPrestito = ChronoUnit.DAYS.between(inizioPrestito, finePrestito);
 		
+		outputLines.add(String.valueOf(durataPrestito));
+	}
+	
+    private void init() {
+    	
 		Scanner scanner = new Scanner(inputLines.get(0));
 		int giornoInizio = scanner.nextInt();
 		int meseInizio = scanner.nextInt();
@@ -33,10 +41,7 @@ public class Biblioteca extends Algoritmo{
 		inizioPrestito = LocalDateTime.of(2001, meseInizio, giornoInizio, 0, 0);
 		
 		finePrestito = LocalDateTime.of(2001, meseFine, giornoFine, 0, 0);
-		
-		long durataPrestito = ChronoUnit.DAYS.between(inizioPrestito, finePrestito);
-		
-		outputLines.add(String.valueOf(durataPrestito));
-	}
+    	
+    }
 
 }
