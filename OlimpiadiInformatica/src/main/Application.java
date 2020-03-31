@@ -2,6 +2,7 @@ package main;
 
 import Algoritmi.Biblioteca;
 import Algoritmi.Camillo;
+import Algoritmi.Giostra;
 
 public class Application {
 
@@ -14,6 +15,9 @@ public class Application {
 		
 		Biblioteca biblioteca = new Biblioteca(inputFilesPath + "inputBiblioteca.txt");
 		biblioteca.process("./outputs/outputBiblioteca.txt");
+		
+		Giostra giostra = new Giostra(inputFilesPath + "inputGiostra.txt");
+		giostra.process("./outputs/outputGiostra.txt");
 
 	
 	}
