@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class FileHelper {
-	
+
 	public static File getFileByName(String folderPath, String name) {
 		// looking for input file
 		File dir = new File(folderPath);
@@ -20,10 +20,10 @@ public class FileHelper {
 				return name.contains(name);
 			}
 		});
-		
+
 		return inputFiles[0];
 	}
-	
+
 	public static File getFileByExtension(String folderPath, String extension) {
 		// looking for input file
 		File dir = new File(folderPath);
@@ -32,12 +32,12 @@ public class FileHelper {
 				return name.endsWith(extension);
 			}
 		});
-		
+
 		return inputFiles[0];
 	}
-	
+
 	public static List<String> getAllFileLines(String filePath) {
-		
+
 		List<String> lines = new ArrayList<String>();
 		try {
 			BufferedReader br = Files.newBufferedReader(Paths.get(filePath));
@@ -53,32 +53,35 @@ public class FileHelper {
 		return lines;
 	}
 
-	
 	public static String getFirstFileLine(String filePath) {
-		
+
 		List<String> lines = getAllFileLines(filePath);
-		
+
 		return lines.get(0);
 
 	}
 
 	public static void WriteLines(String outputFilePath, List<String> lines) {
-		
+
+		boolean init = true;
 		FileWriter fw;
-		
+
 		try {
-			
+
 			fw = new FileWriter(outputFilePath);
 			for (String line : lines) {
-				fw.write(line + "\n");
+				if (init) {
+					fw.write(line);
+					init = false;
+				} else {
+					fw.write("\n" + line);
+				}
 			}
 			fw.close();
-			
+
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		 
 
-		
 	}
 }

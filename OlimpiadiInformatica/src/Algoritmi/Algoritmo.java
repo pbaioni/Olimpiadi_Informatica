@@ -38,7 +38,7 @@ public abstract class Algoritmo {
 		Duration d = Duration.between(start, end);
 
 		System.out.println(
-				name + " algoryhtm duration: " + d.getSeconds() + " seconds and " + d.getNano() / 1000000 + " millis.");
+				name + " algorithm duration: " + d.getSeconds() + " seconds and " + d.getNano() / 1000000 + " millis.");
 
 	}
 
@@ -49,6 +49,9 @@ public abstract class Algoritmo {
 		calculate();
 
 		printAndStoreResult(outputFilePath);
+		
+		//in case of recall of this method
+		outputLines.clear();
 
 		endExecution();
 	}
